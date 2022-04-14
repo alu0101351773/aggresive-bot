@@ -122,7 +122,7 @@ for i in range(len(implicated_variables)):
 		error_code = True
 
 if (error_code == True):
-    return -1
+	return -1
 ```
 
 Por último actualizamos la información de la red de acuerdo a las
@@ -147,7 +147,7 @@ el valor de probabilidad para esa variable.
 print("\nFinal results:")
 # Print the results
 for i in range(0, len(beliefs)):
-    print(net.get_outcome_id('St_1', i) + " = " + str(round(float(beliefs[i] * 100))) + " %")
+	print(net.get_outcome_id('St_1', i) + " = " + str(round(float(beliefs[i] * 100))) + " %")
 ```
 
 ## Ejemplos del cálculo de St+1 con Genie
