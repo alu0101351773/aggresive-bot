@@ -115,11 +115,11 @@ Acto seguido establecemos las respuestas como evidencias en un bloque
 
 ```py
 for i in range(len(implicated_variables)):
-		try:
-			net.set_evidence(implicated_variables[i], evidences[i])
-		except:
-			print(f"The value \"{evidences[i]}\" is not valid for {implicated_variables[i]}")
-			error_code = True
+	try:
+		net.set_evidence(implicated_variables[i], evidences[i])
+	except:
+		print(f"The value \"{evidences[i]}\" is not valid for {implicated_variables[i]}")
+		error_code = True
 
 if (error_code == True):
     return -1
