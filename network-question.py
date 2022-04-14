@@ -1,10 +1,14 @@
+# Practica: Seminario 2
+# Autores:
+# - Juan Guillermo Zafra Fernandez (alu0101353647)
+# - Jorge Cabrera Rodriguez (alu0101351773)
+
 import pysmile
 import pysmile_license
 
-# funcion que pregunta por las evidencias y lasguarda en un array que luego retorna
+# Funcion para pedir los valores iniciales a utilizar en nuestra red bayesiana
 def askInitialValues():
 	evidences = []
-	print("Se le va a solicitar introducir los valores iniciales. Aquellos valores que esten mal escritos seran incicializados a otro que tenga sentido.")
 	print("Introduce el valor de St:\n - A (attack)\n - SW (switch weapon)\n - SH (switch health)\n" +
 	" - E (explore)\n - F (flee)\n - DD (detect danger)")
 	evidences.append(input()) 
@@ -22,54 +26,53 @@ def askInitialValues():
 	evidences.append(input())
 	return evidences
 
+# Funcion principal de nuestro programa
 def main():
-	# Cargamos la red y la librería de la red
 	net = pysmile.Network()
 	net.read_file("BotAgresivo.xdsl")
-
-	# Fijamos las evidencias iniciales
 	evidences = askInitialValues()
 
+	implicated_variables = 3
 	try:
 		net.set_evidence("St", evidences[0])
 	except:
-		print("Error initial value (St) not valid")
+		print(f"Error initial value (St = {evidences[0]}) not valid")
 		return -1
 
 	try:
 		net.set_evidence("Health", evidences[1])
 	except:
-		print("Error initial value (H) not valid")
+		print(f"Error initial value (H = {evidences[1]}) not valid")
 		return -1
 
 	try:
 		net.set_evidence("Heard_Noise", evidences[2])
 	except:
-		print("Error initial value (HN) not valid")
+		print(f"Error initial value (HN = {evidences[2]}) not valid")
 		return -1
 
 	try:
 		net.set_evidence("Number_Enemies", evidences[3])
 	except:
-		print("Error initial value (NE) not valid")
+		print(f"Error initial value (NE = {evidences[3]}) not valid")
 		return -1
 
 	try:
 		net.set_evidence("Opponent_Weapon", evidences[4])
 	except:
-		print("Error initial value (OW) not valid")
+		print(f"Error initial value (OW = {evidences[4]}) not valid")
 		return -1
 
 	try:
 		net.set_evidence("Proximate_Healthpack", evidences[5])
 	except:
-		print("Error initial value (PH) not valid")
+		print(f"Error initial value (PH = {evidences[5]}) not valid")
 		return -1
 
 	try:
 		net.set_evidence("Weapon", evidences[6])
 	except:
-		print("Error initial value (W) not valid")
+		print(f"Error initial value (W = {evidences[6]}) not valid")
 		return -1
 
 	# Actualizamos la red
@@ -80,8 +83,10 @@ def main():
 
 	# Mostrar por pantalla la tabla St+1
 	for i in range(0, len(beliefs)):
-		print(net.get_outcome_id('St_1', i) + "=" + "0." +str(round(float(beliefs[i] * 100))))
+		print(net.get_outcome_id('St_1', i) + " = " +str(round(float(beliefs[i] * 100))) + " %")
 
 	return 0
 
-main()
+
+if __name__ == "__main__":
+	main()
