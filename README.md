@@ -9,6 +9,15 @@
 - Juan Guillermo Zafra Fernández (alu0101353647)
 - Jorge Cabrera Rodríguez (alu0101351773)
 
+## Porcentaje de participación:
+
+- Realización del código
+  - Jorge Cabrera _(60%)_
+  - Juan Guillermo _(40%)_
+- Realización del informe
+  - Jorge Cabrera _(80%)_
+  - Juan Guillermo _(20%)_
+
 ## Descripción del funcionamiento del programa
 
 ### Descripción del problema
